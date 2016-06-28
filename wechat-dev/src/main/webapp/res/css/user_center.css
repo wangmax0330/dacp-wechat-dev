@@ -1,0 +1,15 @@
+.account{height: 180px; color: white; overflow: hidden; position: relative;}
+.account .account-bg{width: 100%; height: 180px; position: absolute; top: 0; z-index: 0; overflow: hidden;}
+.account div{position: relative; z-index: 1;}
+.account .head-img{width: 66px; height: 66px; border-radius: 66px; border: 1px solid #FFF; margin: 50px auto 18px; overflow: hidden;}
+.account .head-img img{width: 100%; height: 100%;}
+.classify{background-color: #9CCC65; font-size: 14px; color: white;}
+.classify .md-f1{padding: 0.8rem 0;}
+.container{margin-bottom: 90px;}
+.item-wrap{position: relative; box-sizing: border-box; background-color: #FFF;}
+.item-list{padding-top: 0.5rem;text-align: center;}
+.item-list .md-f1{width: 25%;}
+.item-list img{width: 30%;}
+.item-list div{padding: 0.5rem 0; height: 25%; box-sizing: border-box; font-size: 0.8rem;}
+.dial{font-weight: 400; letter-spacing: 1px; position: fixed; bottom: 20px; left: 10%; margin: 0;}
+.dial img{margin: 0 3px 3px 0}

@@ -1,0 +1,20 @@
+.q-header{background-color: #FFFFFF; overflow: hidden; border-bottom: 1px solid #BBBBBB; padding: 8px 0;}
+.q-header .q-h-btn{display: inline-block; width: 50%; padding: 5px 0; float: left;}
+.q-header .q-h-btn:nth-of-type(1){border-right: 1px solid #BBBBBB;}
+.content{padding: 12px;}
+.total-quote, .base, .add-item{margin-bottom: 12px; border: 1px solid #BBBBBB; background-color: #FFF; padding: 10px;}
+.base .border-b-main{margin-bottom: 10px; padding-bottom: 10px;}
+.add-item .border-b-main{margin-bottom: 10px; padding-bottom: 10px;}
+.border-b-d{border-bottom: 1px dashed #BBBBBB;}
+.add-item-total{margin-bottom: 0;}
+.pad-r20{padding-right: 20px;}
+.item-list{margin: 15px 0; position: relative;}
+.item-list .item-title{display: inline-block; width: 11px; height: 11px; border-radius: 11px; background-color: #a46de5; margin-right: 10px;}
+.item-list:before{content: ''; height: 38px; width: 1px; position: absolute;  left: 5px; top: -25px; background-color: #a46de5;}
+.item-list:nth-of-type(1):before{display: none;}
+/*修改折叠面板样式*/
+.mui-table-view{border: 1px solid #BBBBBB;}
+.mui-table-view:after{display: none;}
+.mui-navigate-right{background-color: #FFF;}
+.mui-collapse-content:before{position: absolute; right: 15px; top: 0; left: 15px; height: 1px; content: ''; -webkit-transform: scaleY(.5); transform: scaleY(.5); background-color: #a46de5;}
+.mui-table-view-cell:after{position: absolute; right: 15px; left: 15px; height: 1px; content: ''; -webkit-transform: scaleY(.5); transform: scaleY(.5); background-color: #BBBBBB;}

@@ -1,0 +1,11 @@
+.dynamic-log{padding: 12px; margin-bottom: 5rem;}
+.head-img{width: 55px; height: 55px; border-radius: 55px; border: 1px solid #FFF; margin-right: 12px; overflow: hidden;}
+.head-img img{width: 100%; height: 100%;}
+.work-post~p{font-size: 10px;}
+.praise{display: inline-block; width: 30px; height: 30px; background: url("../images/project_state/praise1.png") no-repeat; background-size: contain;}
+.praise.good{background: url("../images/project_state/praise2.png") no-repeat;}
+.explain{margin-top: 10px;}
+.publish-project-state{position: fixed; bottom: 1rem; left: 10%; margin: 0;}
+.reply-frame{background-color: #FFF; padding: 12px; position: fixed; bottom: 0; border-top: 1px solid #BBBBBB;}
+.reply-frame input{margin-bottom: 0;}
+.send-msg{width: 90px; height: 40px; line-height: 40px; margin: 0 0 0 20px; float: right; font-weight: 500;}

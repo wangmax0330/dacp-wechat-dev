@@ -1,0 +1,27 @@
+/*主材配合*/
+.material-list{position: relative; line-height: 32px;}
+.material-list .material-title{display: inline-block; width: 11px; height: 11px; border-radius: 11px; background-color: #a46de5; margin-right: 10px; position: relative;  z-index: 5;}
+.material-list .md-f1{padding: 15px 0;}
+.material-list:before{content: ''; height: 80px; width: 1px; position: absolute; left: 5px; top: -20px; background-color: #BBBBBB;}
+.mat-list-btn{width: 90px; height: 32px; line-height: 32px; margin: 0; float: right; font-weight: 500;}
+.mat-list-btn.over{background-color: #fff; color: #BBBBBB; border: 1px solid #BBBBBB;}
+@media screen and (max-width: 360px){.material-list{font-size: 14px;}}
+@media screen and (max-width: 320px){.material-list{font-size: 12px;}}
+/*工程验收*/
+.check-wrap{padding: 0 12px; margin-bottom: 12px;}
+.check-list{padding: 12px 0; overflow: auto; border-bottom: 1px solid #BBBBBB;}
+.check-list:last-of-type{border: none;}
+.color-bbb.color-main{color: #a46de5;}
+/*工程验收详情*/
+.item-title{padding: 12px 0; border-bottom: 1px solid #BBBBBB; margin-bottom: 10px;}
+/*.mui-checkbox input[type=checkbox], .mui-radio input[type=radio]{width: 28px; height: 26px; position: absolute; top: 50%; right: 0;*/
+    /*-webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%);}*/
+/*.mui-checkbox label, .mui-radio label{padding: 0 0 0 10px; font-size: 14px;}*/
+.c-s-list{margin: 10px 0;}
+.c-s-list img{width: 50px; height: 50px;}
+.c-s-list .md-f1{padding: 0 0 0 10px; font-size: 14px;}
+.statistics{border-top: 1px solid #BBBBBB; padding-top: 8px;}
+.btn-wrap{text-align: center;}
+.btn-wrap .bg-fff{color: #666666; margin-right: 20px;}
+.btn-wrap .btn{margin-top: 0; width: 40%; display: inline-block;}
+/*.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{color: #a46de5;}*/

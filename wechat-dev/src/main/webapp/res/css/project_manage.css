@@ -1,0 +1,28 @@
+.project{padding: 12px; border: 1px solid #BBBBBB; margin-bottom: 12px;}
+.project .project-name{padding-bottom: 5px;}
+.project p{padding-bottom: 5px; margin-bottom: 0;}
+.project .mar-b10{margin-bottom: 5px;}
+/*progress ½ø¶ÈÌõ*/
+.progress{width: 100%; position: relative; font-size: 14px; overflow: auto;}
+.progress-bar{width:70%; height: 0.5rem; border-radius: 0.3rem;}
+.progress .color-main{float: right; margin-top: 0.15rem;}
+.progress-bar::-webkit-progress-bar{background:#CBCBCB; border-radius: 0.3rem;}
+.progress .progress-bar::-webkit-progress-value{background:#BA75FA; border-radius: 0.3rem;}
+.p-manage{padding-top: 12px; overflow: auto;}
+.p-manage .p-manage-list{width: 25%; text-align: center; float: left;}
+.p-manage .p-manage-list img{width: 55%;}
+.p-manage .p-manage-list p{color: #a46de5;}
+#team{overflow: hidden;}
+#team .member-list{width: 25%; float: left;}
+.head-img{width: 55px; height: 55px; border-radius: 55px; border: 1px solid #FFF; margin: 0 auto 5px auto; overflow: hidden;}
+.head-img img{width: 100%; height: 100%;}
+.course-list{overflow: auto;}
+.course-list a{display: block; height: 21px;}
+/*µ¯´°*/
+#mask-page{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: black; background-color: rgba(0, 0, 0, 0.6); filter:alpha(opacity=60); display: none;}
+.pop-content{background-color: #FFF; position: fixed; left: 0; bottom: 0; width: 100%;}
+.pop-content .pop-title{padding: 15px 0; margin: 0 12px;}
+.pop-content .head-img{margin: 20px 12px;}
+.pop-content .work-post{margin: 18px 0 10px 0;}
+.pop-content .btn{margin: 10px auto 30px auto;}
+.close-mask-pop{width: 30px; height: 30px; position: absolute; right: 5px; top: 5px; background: url("../images/project_manage/close.png") no-repeat center; background-size: contain;}

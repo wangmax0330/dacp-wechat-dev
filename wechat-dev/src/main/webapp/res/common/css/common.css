@@ -1,0 +1,79 @@
+*{padding: 0; margin: 0; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;}
+html, body{font-size: 100%; min-height: 100%; font-family: 'Microsoft YaHei', Helvetica, sans-serif;}
+.swiper-slide img{width: 100%;} /*轮播图片大小限制*/
+@media screen and (max-width: 375px) {
+	html, body{font-size: 100%;}
+}
+.md-box{display: box; display: -webkit-box;}
+.md-ac{box-align: center; -webkit-box-align: center;}       /*子元素垂直居中*/
+.md-as{box-align: stretch; -webkit-box-align: stretch;}     /*拉伸子元素以填充包含块*/
+.md-ae{box-align: end; -webkit-box-align: end;}             /*子元素垂直居于底部*/
+.md-pc{box-pack: center; -webkit-box-pack: center;}         /*子元素水平居中*/
+.md-pe{box-pack: end; -webkit-box-pack: end;}               /*子元素水平靠右*/
+.md-pj{box-pack: justify; -webkit-box-pack: justify;}       /*在每个子元素之间分割多余的空间（首个子元素前和最后一个子元素后没有多余的空间）。*/
+.md-ver{box-orient: vertical; -webkit-box-orient: vertical;}/*从上向下垂直排列子元素。*/
+.md-f1{box-flex: 1; -webkit-box-flex: 1;}
+.md-size{box-sizing: border-box; -webkit-box-sizing: border-box; }
+.md-img{background-position: center; background-repeat: no-repeat; background-size: contain; }
+.md-img0{background-position: center; background-repeat: no-repeat; }
+.md-img1{background-position: center; background-repeat: no-repeat; background-size: cover; }
+.md-img2{background-position: center; background-repeat: no-repeat; background-size: 100% 100%;}
+
+a{text-decoration: none; color: inherit;}
+.float-l{float: left;}
+.float-r{float: right;}
+.text-c{text-align: center}
+.text-l{text-align: left}
+.text-r{text-align: right}
+.font-900{font-weight: 900;}
+.bg-fff{background-color: #FFF;}
+.dis-none{display: none;}
+.dis-block{display: block;}
+.dis-in-block{display: inline-block;}
+.btn{width: 80%; height: 3rem; line-height: 3rem; border-radius: 0.3rem; font-size: 1rem; font-weight: 900; color: white; text-align: center; margin: 2rem auto; position: relative; z-index: 999; letter-spacing: 0.1rem;}
+/*.color-main{color: #7e58ab;}*/
+.color-main{color: #a46de5;}
+.bg-main{background-color: #BA75FA;}
+.border-b-main{border-bottom: 1px solid #7e58ab;}
+.border-b-bbb{border-bottom: 1px solid #BBBBBB;}
+.border-bbb{border: 1px solid #BBBBBB;}
+.pad-12{padding: 12px;}
+.pad-b10{padding-bottom: 10px;}
+.pad-lr5{padding: 0 5px}
+.mar-b10{margin-bottom: 10px;}
+.mar-t10{margin-top: 10px;}
+.mar-t1{margin-top: 1rem;}
+.color-bbb{color: #BBBBBB;}
+.content{padding: 12px;}
+/*修改MUI的默认样式*/
+.mui-navigate-right:after, .mui-push-left:after, .mui-push-right:after{color: #3C0044;} /*折叠面板*/
+.mui-table-view-cell{padding: 12px;}
+/*图片列表*/
+.img-wrap{width: 100%; height: auto; margin-bottom: 10px; overflow: hidden;}
+.img-wrap .img-list, .img-wrap .add-img-wrap{display: inline-block; width: 33.333%; height: 4rem; float: left; padding: 0 5px; margin-top: 10px; box-sizing: border-box; overflow: hidden; position: relative;}
+.img-wrap .img-list img{width: 100%; height: 100%;}
+.img-wrap .img-list .close-img{position: absolute; right: 0; top: 0; display: inline-block; padding: 5px 10px; font-size: 36px; font-weight: 900;}
+.img-wrap .add-img{width: 100%;height: 100%;}
+.img-wrap .add-img span{display: inline-block; width: 30px; height: 30px; background: url("../../images/house_report/add_img.png") no-repeat; background-size: contain;
+	background-position: center; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;}
+/*点击弹出显示大图*/
+#big_img{position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 9999; background-color: rgba(10, 10, 10, 0.8); display: none;}
+#big_img .mui-slider{width: 100%; height: 100%; position: absolute; top: 50%; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%);}
+#big_img .mui-slider img{width: 100%; height: auto;}
+#big_img .mui-slider .mui-slider-group{width: 100%; height: 100%;}
+#big_img .mui-slider .mui-slider-group .mui-slider-item{width: 100%; height: 100%;}
+#big_img .mui-slider-item img{position: absolute; top: 50%; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%);}
+
+.footer-wrap{height: 3.5rem; position: relative; margin-top: 1rem;}
+.footer{height: 3.5rem; width: 100%; text-align: center; position: fixed; bottom: 0; z-index: 9999; background-color: #FFF;}
+.footer div{width: 25%; float: left; margin-top: 0.5rem; font-size: 0.8rem;}
+.footer .link .home-img span{display: inline-block; width: 1.733rem; height: 1.5rem; background: url("../images/home.png") no-repeat; background-size: contain;}
+.footer .link .invest-img span{display: inline-block; width: 1.733rem; height: 1.5rem; background: url("../images/invest.png") no-repeat; background-size: contain;}
+.footer .link .loan-img span{display: inline-block; width: 1.733rem; height: 1.5rem; background: url("../images/loan.png") no-repeat; background-size: contain;}
+.footer .link .user-center-img span{display: inline-block; width: 1.733rem; height: 1.5rem; background: url("../images/user-center.png") no-repeat; background-size: contain;}
+.footer .link.on .home-img span{background: url("../images/home-on.png") no-repeat; background-size: contain;}
+.footer .link.on .invest-img span{background: url("../images/invest-on.png") no-repeat; background-size: contain;}
+.footer .link.on .loan-img span{background: url("../images/loan-on.png") no-repeat; background-size: contain;}
+.footer .link.on .user-center-img span{background: url("../images/user-center-on.png") no-repeat; background-size: contain;}
+.footer .link.on p{color: #7e58ab;}
+.footer .link p{line-height: 14px;}
