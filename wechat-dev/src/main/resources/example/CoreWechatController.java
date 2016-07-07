@@ -1,4 +1,4 @@
-package com.pikia.example.pay;
+package com.showzhuang.controller.wechat;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -29,6 +29,9 @@ import com.pikia.wx.domain.NewsMessage;
 import com.pikia.wx.domain.TextMessage;
 import com.pikia.wx.service.WeixinService;
 import com.pikia.wx.util.WeixinUtil;
+import com.showzhuang.common.utils.IDUtils;
+import com.showzhuang.pojo.CustomerInfo;
+import com.showzhuang.service.CustomerInfoService;
 
 /**
  * 微信处理消息
@@ -40,6 +43,8 @@ import com.pikia.wx.util.WeixinUtil;
 public class CoreWechatController extends WeixinController {
 	private final Logger logger = Logger.getLogger(CoreWechatController.class);
 
+	@Resource
+	protected CustomerInfoService customerInfoService;
 	@Resource
 	protected WeixinService weixinService;
 
@@ -97,35 +102,33 @@ public class CoreWechatController extends WeixinController {
 						String realIp = RequestUtils.getIpAddr(request);
 						logger.error(openId);
 						logger.debug("---------------openId-----------------------");
-						// CustomerInfo customerInfo =
-						// customerInfoService.getInfoByWeChatAccount(openId);
-						// logger.error("********customerInfo********" +
-						// customerInfo);
-					//	if (customerInfo == null) {
+						CustomerInfo customerInfo = customerInfoService.getInfoByWeChatAccount(openId);
+						logger.error("********customerInfo********" + customerInfo);
+						if (customerInfo == null) {
 							// 首次订阅,如果该微信用户没有和app绑定,则创建用户
 							// {"subscribe":1,"openid":"","nickname":"","sex":1,"language":"en","city":"无锡","province":"江苏","country":"中国","headimgurl":"","subscribe_time":1423232385,"remark":""}
-							JSONObject jsonObject = WeixinUtil.getUserBasicInformation(openId, WeixinUtil.getAccessToken().getToken());
+							JSONObject jsonObject = WeixinUtil.getUserBasicInformation(openId, WeixinUtil
+									.getAccessToken().getToken());
 							// WeixinUtil.getUserBasicInformation(openId,
 							// weixinService.checkOutAccessToken().getToken());
 							logger.debug("-----------jsonObject-------------");
 							logger.debug("-----------WeixinUtil-------------" + WeixinUtil.appid);
 							logger.debug("-----------WeixinUtil-------------" + WeixinUtil.appsecret);
 							logger.debug("-----------WeixinUtil-------------" + WeixinUtil.serverUrl);
-							// customerInfo = new CustomerInfo();
-							// customerInfo.setWechatAccount(openId);
-							// long id = IDUtils.genPrimaryId();
-							// customerInfo.setId(id);
-							// if (jsonObject != null) {
-							// customerInfo.setSex((byte)
-							// jsonObject.getInt("sex"));
-							// customerInfo.setUsername(jsonObject.getString("nickname"));
-							// customerInfo.setWechatAvatar(jsonObject.getString("headimgurl"));
-							// } else {
-							// logger.debug("jsonObject为 null");
-							// }
-							// customerInfo.setCreateTime(new Date());
-							// customerInfoService.saveUser(customerInfo);
-					//	}
+							customerInfo = new CustomerInfo();
+							customerInfo.setWechatAccount(openId);
+							long id = IDUtils.genPrimaryId();
+							customerInfo.setId(id);
+							if (jsonObject != null) {
+								customerInfo.setSex((byte) jsonObject.getInt("sex"));
+								customerInfo.setUsername(jsonObject.getString("nickname"));
+								customerInfo.setWechatAvatar(jsonObject.getString("headimgurl"));
+							} else {
+								logger.debug("jsonObject为 null");
+							}
+							customerInfo.setCreateTime(new Date());
+							customerInfoService.saveUser(customerInfo);
+						}
 
 						// List<Article> articles = new ArrayList<Article>();
 						// String eventKey = xml.get("EventKey");
@@ -176,8 +179,8 @@ public class CoreWechatController extends WeixinController {
 						// news.setArticles(articles);
 						// ResponseUtils.writeMessage(response,
 						// MessageUtil.newsMessageToXml(news));
-						text.setContent("秀主\n" + "您的装修准备秀了吗？\n" + "装修本该美好，我却如此烦恼\n" + "不好不好\n" + "为嘛都互联网时代了\n" + "我还要送上门去被忽悠呢？\n" + "不应该是拿起手机点点点\n"
-								+ "选好产品送上门嘛\n");
+						text.setContent("秀主\n" + "您的装修准备秀了吗？\n" + "装修本该美好，我却如此烦恼\n" + "不好不好\n" + "为嘛都互联网时代了\n"
+								+ "我还要送上门去被忽悠呢？\n" + "不应该是拿起手机点点点\n" + "选好产品送上门嘛\n");
 					} else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
 						String eventKey = xml.get("EventKey");
 						if ("jd_sao_cp_js".equals(eventKey)) {

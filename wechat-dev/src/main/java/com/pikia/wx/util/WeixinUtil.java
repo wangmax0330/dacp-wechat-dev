@@ -45,20 +45,16 @@ import com.pikia.wx.domain.TemplateMessage;
 public class WeixinUtil {
 	private static Logger log = LoggerFactory.getLogger(WeixinUtil.class);
 
-	public static String appid;// = "wx72154d0c46dda56c";
-	public static String appsecret;// = "8ae39c7b0200d16fa80bbf6fe7932522";
-	public static String serverUrl;// = "http://123.56.11.42"
+	public static String appid;
+	public static String appsecret;
+	public static String serverUrl;
 	public static String token;
 
 	static {
-		//WeixinUtil.appid = "wx72154d0c46dda56c";
-		//WeixinUtil.appsecret = "8ae39c7b0200d16fa80bbf6fe7932522";
-		//WeixinUtil.serverUrl = "http://www.octlr.com";
-		//WeixinUtil.token = "sdlc_wechat_token";
-		 appid = SystemProperties.getProperties("appid");
-		 appsecret = SystemProperties.getProperties("appsecret");
-		 serverUrl = SystemProperties.getProperties("serverUrl");
-		 token = SystemProperties.getProperties("token");
+		appid = SystemProperties.getProperties("appid");
+		appsecret = SystemProperties.getProperties("appsecret");
+		serverUrl = SystemProperties.getProperties("serverUrl");
+		token = SystemProperties.getProperties("token");
 	}
 
 	/**
@@ -211,8 +207,7 @@ public class WeixinUtil {
 			} catch (JSONException e) {
 				accessToken = null;
 				// 获取token失败
-				log.error("获取token失败 errcode:{} errmsg:{}", jsonObject.getInt("errcode"),
-						jsonObject.getString("errmsg"));
+				log.error("获取token失败 errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));
 			}
 		}
 		return accessToken;
@@ -320,8 +315,7 @@ public class WeixinUtil {
 
 			String ContentDisposition = conn.getHeaderField("Content-disposition");
 			// 图片在微信服务器上的名称
-			String weixinServerFileName = ContentDisposition.substring(ContentDisposition.indexOf("filename") + 10,
-					ContentDisposition.length() - 1);
+			String weixinServerFileName = ContentDisposition.substring(ContentDisposition.indexOf("filename") + 10, ContentDisposition.length() - 1);
 			ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
 			byte[] buff = new byte[100];
 			int rc = 0;
@@ -346,8 +340,8 @@ public class WeixinUtil {
 	 */
 	public static String getOpenId(String code) {
 		try {
-			String accesstokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + appid + "&secret="
-					+ appsecret + "&code=" + code + "&grant_type=authorization_code";
+			String accesstokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + appid + "&secret=" + appsecret + "&code=" + code
+					+ "&grant_type=authorization_code";
 			JSONObject jsonObject = httpRequest(accesstokenUrl, "POST", null);
 			// String refreshToken=jsonObject.getString("refresh_token");
 			String openID = jsonObject.getString("openid");
@@ -401,8 +395,7 @@ public class WeixinUtil {
 	public static String getSignature(String nonceStr, String timestamp, String url, String jsapi_ticket) {
 		// 步骤一:对所有待签名参数按照字段名的ASCII
 		// 码从小到大排序（字典序）后，使用URL键值对的格式（即key1=value1&key2=value2…）拼接成字符串string1：
-		String str = "jsapi_ticket=" + jsapi_ticket + "&noncestr=" + nonceStr + "&timestamp=" + timestamp + "&url="
-				+ url;
+		String str = "jsapi_ticket=" + jsapi_ticket + "&noncestr=" + nonceStr + "&timestamp=" + timestamp + "&url=" + url;
 		// 步骤二:对string1进行sha1签名，得到signature：
 		String signature = encryptPassword(str);
 		return signature;
@@ -439,9 +432,7 @@ public class WeixinUtil {
 	}
 
 	/**
-	 * 获取用户一些基本信息,包括昵称(nickname),性别(sex),城市(city),省份(province)
-	 * 头像地址(headimgurl),注册时间
-	 * (subscribe_time),UnionID(同一用户，对同一个微信开放平台帐号下的不同应用，UnionID是相同的)
+	 * 获取用户一些基本信息,包括昵称(nickname),性别(sex),城市(city),省份(province) 头像地址(headimgurl),注册时间 (subscribe_time),UnionID(同一用户，对同一个微信开放平台帐号下的不同应用，UnionID是相同的)
 	 * 
 	 * @param openID
 	 * @param accessToken
@@ -508,13 +499,13 @@ public class WeixinUtil {
 	 * @param prizeName
 	 * @return
 	 */
-	public static boolean sendDecoratorProgessMessage(String touser, String originalUrl, String accessToken,
-			String projectId, String timestamp, String sectionType) {
+	public static boolean sendDecoratorProgessMessage(String touser, String originalUrl, String accessToken, String projectId, String timestamp,
+			String sectionType) {
 		String requestUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
 		requestUrl = requestUrl.replace("ACCESS_TOKEN", accessToken);
 		Map<String, Template> data = new HashMap<String, Template>();
 		String template_id = null;
-		template_id = "747uQiO8mOsA4963TAZ2ebjlGHx_-xtSE1W3R-6K86U"; 
+		template_id = "747uQiO8mOsA4963TAZ2ebjlGHx_-xtSE1W3R-6K86U";
 		Template first = new Template(), keynote1 = new Template(), keynote2 = new Template(), keynote3 = new Template(), remark = new Template();
 		first.setColor("#173177");
 		first.setValue("尊敬的客户您好，您的装修进度如下");
@@ -554,10 +545,9 @@ public class WeixinUtil {
 		// 永久二维码请求说明
 		// POST数据例子：{"action_name": "QR_LIMIT_SCENE", "action_info": {"scene":
 		// {"scene_id": 123}}}
-		String tempQRCodeJson = "{\"expire_seconds\": 1800, \"action_name\": \"QR_SCENE\", \"action_info\": {\"scene\": {\"scene_id\": "
-				+ targetId + "}}}";
-		String permanenQRCodeJson = "{\"action_name\": \"QR_LIMIT_SCENE\", \"action_info\": {\"scene\": {\"scene_id\": "
-				+ targetId + "}}}";
+		String tempQRCodeJson = "{\"expire_seconds\": 1800, \"action_name\": \"QR_SCENE\", \"action_info\": {\"scene\": {\"scene_id\": " + targetId
+				+ "}}}";
+		String permanenQRCodeJson = "{\"action_name\": \"QR_LIMIT_SCENE\", \"action_info\": {\"scene\": {\"scene_id\": " + targetId + "}}}";
 		// 返回Json格式{"ticket":"gQH47joAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL2taZ2Z3TVRtNzJXV1Brb3ZhYmJJAAIEZ23sUwMEmm3sUw==","expire_seconds":60,"url":"http:\/\/weixin.qq.com\/q\/kZgfwMTm72WWPkovabbI"}
 		JSONObject resultJson = httpRequest(qrCodeTicketUrl, "GET", permanenQRCodeJson);
 		return resultJson;
@@ -586,9 +576,8 @@ public class WeixinUtil {
 		// JSONObject jsonObject = getQRCodeTicket(accessToken.getToken(),
 		// 01111l);
 		// System.out.println(getQRCodeUrl(accessToken.getToken(), 1111l));
-		WeixinUtil.sendDecoratorProgessMessage("oGE8gwJM-v3SSBVfDzvIe8W3KFiQ",
-				"", WeixinUtil.getAccessToken().getToken(),
-				"1111111", DateUtils.date2Str(new Date()), "水电改造");
+		WeixinUtil.sendDecoratorProgessMessage("oGE8gwJM-v3SSBVfDzvIe8W3KFiQ", "", WeixinUtil.getAccessToken().getToken(), "1111111",
+				DateUtils.date2Str(new Date()), "水电改造");
 		// WeixinUtil.appid = "wx72154d0c46dda56c";
 		// WeixinUtil.appsecret = "8ae39c7b0200d16fa80bbf6fe7932522";
 		// WeixinUtil.serverUrl = "http://www.octlr.com";
@@ -603,10 +592,9 @@ public class WeixinUtil {
 		// System.out.println(jsonObject.getString("nickname"));
 		// System.out.println(jsonObject.getString("headimgurl"));
 
-		// byte[] bytes =
-		// WeixinUtil.downloadMediaFromWx(getAccessToken().getToken(),
-		// "-dfFL6e5gkS4HUIScVYlqeFOx93zJX0VMGKfTE0y37pXAreR8JR1ESqKDFvPghZJFrigOTi1MIrk3igB4oxj8ZQwkmoxhfWfoxL3Ki64ZAiKcN-5L3D9PMMG6cTNNe9QN");
-		// System.out.println(bytes);
+		byte[] bytes = WeixinUtil.downloadMediaFromWx(getAccessToken().getToken(),
+				"-dfFL6e5gkS4HUIScVYlqeFOx93zJX0VMGKfTE0y37pXAreR8JR1ESqKDFvPghZJFrigOTi1MIrk3igB4oxj8ZQwkmoxhfWfoxL3Ki64ZAiKcN-5L3D9PMMG6cTNNe9QN");
+		System.out.println(bytes);
 		System.out.println("11");
 
 	}

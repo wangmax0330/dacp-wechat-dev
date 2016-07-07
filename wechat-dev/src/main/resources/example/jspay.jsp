@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html" pageEncoding="utf-8"%>  
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
 	<meta charset="UTF-8">
